@@ -47,3 +47,23 @@ body {
     padding: 0 15px;
     text-wrap: balance;
 }
+
+.bingokaart-radiobutton {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-items: center;
+    font-size: var(--text-size-bingo);
+}
+
+.bingokaart-radiobutton input {
+    appearance: none;
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+    border: 2px solid var(--border-color);
+    position: relative;
+    top: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s, border-color 0.2s;
+}
