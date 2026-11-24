@@ -1,0 +1,9 @@
+---
+title: Bingokaarten
+layout: 'layouts/base.html'
+---
+<section class="bingo-grid">
+    {% for card in activiteiten %}
+        {% include "components/organisms/BingoCard.html" with card %}
+    {% endfor %}
+</section>
