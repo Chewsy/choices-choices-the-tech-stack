@@ -104,3 +104,24 @@ body {
     /* gedaan - groen */
     background-color: hsl(85, 57%, 64%);
 }
+
+.bingo-grid {
+    margin-top: 40px;
+    width: max-content;
+    height: max-content;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 20px;
+}
+
+@media (width >= 768px) {
+    .bingo-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (width >= 1250px) {
+    .bingo-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
