@@ -125,3 +125,30 @@ body {
         grid-template-columns: repeat(3, 1fr);
     }
 }
+
+.bingokaart.state-1 .bingokaart-radiobutton input {
+    border-color: var(--color-neutral-dark);
+}
+
+.bingokaart.state-1 .bingokaart-radiobutton input:checked {
+    background-color: var(--color-neutral-dark);
+    border-color: var(--color-neutral-dark);
+}
+
+.bingokaart.state-2 .bingokaart-radiobutton input {
+    border-color: var(--color-primary-700);
+}
+
+.bingokaart.state-2 .bingokaart-radiobutton input:checked {
+    background-color: var(--color-primary-700);
+    border-color: var(--color-primary-700);
+}
+
+.bingokaart.state-3 .bingokaart-radiobutton input {
+    border-color: var(--color-green-800);
+}
+
+.bingokaart.state-3 .bingokaart-radiobutton input:checked {
+    background-color: var(--color-green-800);
+    border-color: var(--color-green-800);
+}
