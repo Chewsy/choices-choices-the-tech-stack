@@ -1,0 +1,8 @@
+<fieldset class="radiobuttons">
+    {% assign state = 1 %}{% assign state_label = "Niet gedaan" %}
+    {% include "../atoms/BingoRadioButton.html" with card %}
+    {% assign state = 2 %}{% assign state_label = "Mee bezig" %}
+    {% include "../atoms/BingoRadioButton.html" with card %}
+    {% assign state = 3 %}{% assign state_label = "Gedaan" %}
+    {% include "../atoms/BingoRadioButton.html" with card %}
+</fieldset>
