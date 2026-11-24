@@ -1,3 +1,19 @@
+@font-face {
+  font-family: "Inter";
+  src: url("../fonts/InterVariable.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("../fonts/InterVariable-Italic.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}
+
 :root {
     --color-black: hsl(0, 0%, 0%);
     --color-neutral-800: hsl(0, 0%, 16%);
@@ -7,20 +23,27 @@
 
     --color-neutral-dark: var(--color-neutral-800);
     --color-neutral-lighter: var(--color-neutral-300);
-    --primary-color-dark: var(--color-primary-700);
+    --border-color: var(--color-primary-700);
 
-    /* niet gedaan - lichtgrijs */
-    .state-0 {
-        background-color: var(--color-neutral-lighter);
-    }
+    /* Fonts */
+    --font-regular: "Inter", sans-serif;
+    --font-medium: "Inter", sans-serif;
 
-    /* mee bezig - blauw */
-    .state-1 {
-        background-color: hsl(204, 59%, 72%);
-    }
+    /* Typografie */
+    --text-size-md: clamp(1rem, 2vw, 16px);
+    --text-size-bingo: clamp(0.6rem, 1.2vw, 0.75rem);
+}
 
-    /* gedaan - groen */
-    .state-2 {
-        background-color: hsl(85, 57%, 64%);
-    }
+body {
+    font-family: var(--font-regular);
+}
+
+.activity {
+    color: var(--color-black);
+    font-family: var(--font-medium);
+    font-size: var(--text-size-md);
+    text-align: center;
+    margin: 0;
+    padding: 0 15px;
+    text-wrap: balance;
 }
