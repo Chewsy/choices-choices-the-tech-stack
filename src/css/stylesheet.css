@@ -77,3 +77,30 @@ body {
     margin: 0;
     padding: 0;
 }
+
+.bingokaart {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    border: 1px solid var(--border-color);
+    width: 250px;
+    height: 200px;
+    border-radius: 5px;
+}
+
+.bingokaart.state-1 {
+    /* niet gedaan - lichtgrijs */
+    background-color: var(--color-neutral-lighter);
+}
+
+.bingokaart.state-2 {
+    /* mee bezig - blauw */
+    background-color: hsl(204, 59%, 72%);
+}
+
+.bingokaart.state-3 {
+    /* gedaan - groen */
+    background-color: hsl(85, 57%, 64%);
+}
