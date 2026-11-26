@@ -1,24 +1,22 @@
 ---
 import BingoRadioButton from "../atoms/BingoRadioButton.astro";
-const { index } = Astro.props;
+const { card } = Astro.props;
 ---
 
-<fieldset id={`radiobuttons-${index}`} class="RadioButtonGroup">
-	<BingoRadioButton value={0} label="Niet gedaan" {index} />
-	<BingoRadioButton value={1} label="Mee bezig" {index} />
-	<BingoRadioButton value={2} label="Gedaan" {index} />
+<fieldset class="radiobuttons">
+    <BingoRadioButton card={card} value={1} label="Niet gedaan" />
+    <BingoRadioButton card={card} value={2} label="Mee bezig" />
+    <BingoRadioButton card={card} value={3} label="Gedaan" />
 </fieldset>
 
 <style>
-	fieldset {
-		display: flex;
-		flex-direction: row;
-		gap: 15px;
-		align-items: center;
-		border: none;
-	}
-
-	.RadioButtonGroup {
-		display: flex;
-	}
+    .radiobuttons {
+        display: flex;
+        flex-direction: row;
+        gap: 15px;
+        align-items: center;
+        border: none;
+        margin: 0;
+        padding: 0;
+    }
 </style>

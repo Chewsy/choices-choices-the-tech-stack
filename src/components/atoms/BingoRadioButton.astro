@@ -1,13 +1,9 @@
 ---
-const { value, label, index } = Astro.props;
+const { value, label, card } = Astro.props;
 ---
-<label class={`bingokaart-radiobutton value-${value}`}>
-    <input
-        type="radio"
-        name={`state-${index}`}
-        {value}
-        onclick="event.stopPropagation()"
-    />
+
+<label class="bingokaart-radiobutton">
+    <input type="radio" name={`state-${card.id}`} value={value} />
     {label}
 </label>
 
@@ -17,58 +13,18 @@ const { value, label, index } = Astro.props;
         flex-direction: column;
         gap: 5px;
         align-items: center;
-        text-align: center;
-        border: none;
+        font-size: var(--text-size-bingo);
     }
 
-    input {
+    .bingokaart-radiobutton input {
         appearance: none;
-
         border-radius: 50%;
         width: 16px;
         height: 16px;
-
-        border: 2px solid var(--color-primary-700);
-
+        border: 2px solid var(--border-color);
         position: relative;
         top: 4px;
         cursor: pointer;
-    }
-
-    input:checked {
-        background-color: var(--color-primary-700);
-    }
-
-    /* `Niet gedaan` (value 0) — donkergrijs */
-    .value-0 {
-        input {
-            border-color: var(--color-neutral-dark);
-        }
-
-        input:checked {
-            background-color: var(--color-neutral-dark);
-        }
-    }
-
-    /* `Mee bezig` (value 1) — donkerblauw */
-    .value-1 {
-        input {
-            border-color: var(--color-primary-700);
-        }
-
-        input:checked {
-            background-color: var(--color-primary-700);
-        }
-    }
-
-    /* `Gedaan` (value 2) — donkergroen */
-    .value-2 {
-        input {
-            border-color: var(--color-green-800);
-        }
-
-        input:checked {
-            background-color: var(--color-green-800);
-        }
+        transition: background-color 0.2s, border-color 0.2s;
     }
 </style>
