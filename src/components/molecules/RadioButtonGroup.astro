@@ -1,0 +1,10 @@
+---
+import BingoRadioButton from "../atoms/BingoRadioButton.astro";
+const { isOpen, index } = Astro.props;
+---
+
+<fieldset id="radiobuttons-{index}" class="RadioButtonGroup" class={isOpen ? "" : "is-closed"}>
+	<BingoRadioButton value={0} label="Niet gedaan" {index} />
+	<BingoRadioButton value={1} label="Mee bezig" {index} />
+	<BingoRadioButton value={2} label="Gedaan" {index} />
+</fieldset>
