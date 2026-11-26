@@ -1,0 +1,53 @@
+---
+import Activity from "../atoms/Activity.astro";
+import RadioButtonGroup from "../molecules/RadioButtonGroup.astro";
+const { activity, index } = Astro.props;
+---
+
+<div class="bingokaart state-0">
+    <button type="button" onclick="toggle(this.parentElement)">
+        <Activity card={activity} />
+    </button>
+    <RadioButtonGroup {index} />
+</div>
+
+<style>
+    .bingokaart {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        border: 1px solid var(--border-color);
+        width: 250px;
+        height: 200px;
+
+        border-radius: 5px;
+    }
+
+    button {
+        width: 100%;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .state-0 {
+        /* niet gedaan - lichtgrijs */
+        background-color: var(--color-neutral-lighter);
+    }
+
+    .state-1 {
+        /* mee bezig - blauw */
+        background-color: hsl(204, 59%, 72%);
+    }
+
+    .state-2 {
+        /* gedaan - groen */
+        background-color: hsl(85, 57%, 64%);
+    }
+</style>

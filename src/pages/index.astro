@@ -1,16 +1,35 @@
 ---
+import BingoCard from "../components/organisms/BingoCard.astro";
+import "../styles/stylesheet.css";
+
+const activiteiten = [
+	{ label: "1" },
+	{ label: "2" },
+	{ label: "3" },
+	{ label: "4" },
+];
 ---
 
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
+		<title>Bingokaart</title>
 	</head>
 	<body>
-		<h1>Astro</h1>
+		<section class="bingo-grid">
+			{activiteiten.map((item, index) => (
+				<BingoCard activity={item} index={index} />
+			))}
+		</section>
 	</body>
 </html>
+
+<style>
+	.bingo-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+		gap: 20px;
+	}
+</style>
