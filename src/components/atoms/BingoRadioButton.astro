@@ -1,0 +1,12 @@
+---
+const { value, label, index } = Astro.props;
+---
+<label class="bingokaart-radiobutton value-{value}">
+    <input
+        type="radio"
+        name="state-{index}"
+        {value}
+        onclick="event.stopPropagation()"
+    />
+    {label}
+</label>
