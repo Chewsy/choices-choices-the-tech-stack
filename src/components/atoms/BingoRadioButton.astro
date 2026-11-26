@@ -17,6 +17,7 @@ const { value, label, index } = Astro.props;
         flex-direction: column;
         gap: 5px;
         align-items: center;
+        text-align: center;
         border: none;
     }
 
@@ -46,13 +47,6 @@ const { value, label, index } = Astro.props;
 
         input:checked {
             background-color: var(--color-neutral-dark);
-        }
-    }
-
-    /* Verberg de `Niet gedaan`-optie wanneer JS actief is */
-    @media (scripting: enabled) {
-        .value-0 {
-            display: none;
         }
     }
 
