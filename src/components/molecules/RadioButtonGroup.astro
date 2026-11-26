@@ -1,9 +1,9 @@
 ---
 import BingoRadioButton from "../atoms/BingoRadioButton.astro";
-const { isOpen, index } = Astro.props;
+const { index } = Astro.props;
 ---
 
-<fieldset id="radiobuttons-{index}" class="RadioButtonGroup" class={isOpen ? "" : "is-closed"}>
+<fieldset id={`radiobuttons-${index}`} class="RadioButtonGroup">
 	<BingoRadioButton value={0} label="Niet gedaan" {index} />
 	<BingoRadioButton value={1} label="Mee bezig" {index} />
 	<BingoRadioButton value={2} label="Gedaan" {index} />
@@ -18,21 +18,7 @@ const { isOpen, index } = Astro.props;
 		border: none;
 	}
 
-	/* Fallback bij geen Javascript*/
 	.RadioButtonGroup {
 		display: flex;
-	}
-
-	/* Verbergt radiobuttons bij Javascript */
-	@media (scripting: enabled) {
-		.RadioButtonGroup.is-closed {
-			clip: rect(0 0 0 0);
-			clip-path: inset(50%);
-			height: 1px;
-			overflow: hidden;
-			position: absolute;
-			white-space: nowrap;
-			width: 1px;
-		}
 	}
 </style>

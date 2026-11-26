@@ -27,7 +27,7 @@ const { value, label, index } = Astro.props;
         width: 16px;
         height: 16px;
 
-        border: 2px solid var(--primary-color-dark);
+        border: 2px solid var(--color-primary-700);
 
         position: relative;
         top: 4px;
@@ -35,7 +35,7 @@ const { value, label, index } = Astro.props;
     }
 
     input:checked {
-        background-color: var(--primary-color-dark);
+        background-color: var(--color-primary-700);
     }
 
     /* `Niet gedaan` (value 0) — donkergrijs */
@@ -59,11 +59,11 @@ const { value, label, index } = Astro.props;
     /* `Mee bezig` (value 1) — donkerblauw */
     .value-1 {
         input {
-            border-color: var(--primary-color-dark);
+            border-color: var(--color-primary-700);
         }
 
         input:checked {
-            background-color: var(--primary-color-dark);
+            background-color: var(--color-primary-700);
         }
     }
 
