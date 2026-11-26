@@ -1,36 +1,67 @@
 ---
+import { fetchActiviteiten } from "../scripts/activiteiten.js";
 import BingoCard from "../components/organisms/BingoCard.astro";
 import "../styles/stylesheet.css";
 
-const activiteiten = [
-	{ label: "1" },
-	{ label: "2" },
-	{ label: "3" },
-	{ label: "4" },
-];
+let activiteiten = [];
+try {
+	const data = await fetchActiviteiten();
+	if (data && data.length > 0) {
+		activiteiten = data;
+	}
+} catch (e) {
+	console.warn("Directus fetch mislukt:", e);
+}
 ---
 
-<html lang="en">
+<html lang="nl">
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Bingokaart</title>
+		<title>Bingokaarten</title>
 	</head>
 	<body>
 		<section class="bingo-grid">
-			{activiteiten.map((item, index) => (
-				<BingoCard activity={item} index={index} />
+			{activiteiten.map((item) => (
+				<BingoCard card={item} />
 			))}
 		</section>
-		<script src="../scripts/BingoCard.js"></script>
+
+		<script>
+			document.querySelectorAll(".bingokaart").forEach((kaart) => {
+				const radios = kaart.querySelectorAll('input[type="radio"]');
+				radios.forEach((radio) => {
+					radio.addEventListener("change", () => {
+						if (radio.checked) {
+							kaart.classList.remove("state-1", "state-2", "state-3");
+							kaart.classList.add("state-" + radio.value);
+						}
+					});
+				});
+			});
+		</script>
 	</body>
 </html>
 
 <style>
 	.bingo-grid {
+		margin: 40px auto 0;
+		width: max-content;
+		height: max-content;
 		display: grid;
-		grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+		grid-template-columns: repeat(1, 1fr);
 		gap: 20px;
+	}
+
+	@media (width >= 768px) {
+		.bingo-grid {
+			grid-template-columns: repeat(2, 1fr);
+		}
+	}
+
+	@media (width >= 1250px) {
+		.bingo-grid {
+			grid-template-columns: repeat(3, 1fr);
+		}
 	}
 </style>
