@@ -1,15 +1,13 @@
 ---
 import Activity from "../atoms/Activity.astro";
 import RadioButtonGroup from "../molecules/RadioButtonGroup.astro";
-const { activity, index } = Astro.props;
+const { card } = Astro.props;
 ---
 
-<div class="bingokaart state-0">
-    <button type="button" onclick="toggle(this.parentElement)">
-        <Activity card={activity} />
-    </button>
-    <RadioButtonGroup {index} />
-</div>
+<article class="bingokaart state-1" data-card={card.id}>
+    <Activity card={card} />
+    <RadioButtonGroup card={card} />
+</article>
 
 <style>
     .bingokaart {
@@ -21,33 +19,43 @@ const { activity, index } = Astro.props;
         border: 1px solid var(--border-color);
         width: 250px;
         height: 200px;
-
         border-radius: 5px;
     }
 
-    button {
-        width: 100%;
-        background: transparent;
-        border: none;
-        cursor: pointer;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .state-0 {
-        /* niet gedaan - lichtgrijs */
+    /* Kaart-achtergrond per state (kaart zelf) */
+    .state-1 {
         background-color: var(--color-neutral-lighter);
     }
-
-    .state-1 {
-        /* mee bezig - blauw */
+    .state-2 {
         background-color: hsl(204, 59%, 72%);
     }
-
-    .state-2 {
-        /* gedaan - groen */
+    .state-3 {
         background-color: hsl(85, 57%, 64%);
+    }
+
+    /* Radio-kleur volgt de kaart-state.
+       :global() laat de kaart de inputs in kind-componenten bereiken. */
+    .state-1 :global(.bingokaart-radiobutton input) {
+        border-color: var(--color-neutral-dark);
+    }
+    .state-1 :global(.bingokaart-radiobutton input:checked) {
+        background-color: var(--color-neutral-dark);
+        border-color: var(--color-neutral-dark);
+    }
+
+    .state-2 :global(.bingokaart-radiobutton input) {
+        border-color: var(--color-primary-700);
+    }
+    .state-2 :global(.bingokaart-radiobutton input:checked) {
+        background-color: var(--color-primary-700);
+        border-color: var(--color-primary-700);
+    }
+
+    .state-3 :global(.bingokaart-radiobutton input) {
+        border-color: var(--color-green-800);
+    }
+    .state-3 :global(.bingokaart-radiobutton input:checked) {
+        background-color: var(--color-green-800);
+        border-color: var(--color-green-800);
     }
 </style>
